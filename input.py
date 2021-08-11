@@ -56,7 +56,7 @@ if st.sidebar.button('What it does and Usage'):
 
 
 if st.sidebar.button('Github'):
-    js = "window.open('https://github.com/AlphaLaser/para-tools')"  # New tab or window
+    js = "window.open('https://github.com/AlphaLaser/ParaTools')"  # New tab or window
     #js = "window.location.href = 'https://github.com/AlphaLaser/para-tools'"  # Current tab
     html = '<img src onerror="{}">'.format(js)
     div = Div(text=html)
