@@ -6,6 +6,6 @@ python-dateutil==2.8.2
 python-git==2018.2.1
 scikit-learn==0.24.2
 sklearn==0.0
-spacy==3.1.1
+spacy==3.0.9
 spacy-legacy==3.0.8
 streamlit==0.86.0
