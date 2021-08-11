@@ -14,8 +14,9 @@ from PIL import Image
 from bokeh.models.widgets import Div
 import graph
 import tts
+import text_scrape
 
-url = ('https://github.com/AlphaLaser/ParaTools')
+url = ('https://github.com/AlphaLaser/para-tools')
 
 
 
@@ -56,7 +57,7 @@ if st.sidebar.button('What it does and Usage'):
 
 
 if st.sidebar.button('Github'):
-    js = "window.open('https://github.com/AlphaLaser/ParaTools')"  # New tab or window
+    js = "window.open('https://github.com/AlphaLaser/para-tools')"  # New tab or window
     #js = "window.location.href = 'https://github.com/AlphaLaser/para-tools'"  # Current tab
     html = '<img src onerror="{}">'.format(js)
     div = Div(text=html)
@@ -82,23 +83,49 @@ if st.sidebar.button('Whatsapp'):
     html = '<img src onerror="{}">'.format(js)
     div = Div(text=html)
     st.bokeh_chart(div)
-logo = Image.open(r'images/logo.png')
+logo = Image.open(r'images\logo.png')
 st.image(logo)
 st.markdown('<hr>', unsafe_allow_html=True)
-st.markdown('<br>', unsafe_allow_html=True)
+
+st.header('Paragraph input')
 st.markdown('<br>', unsafe_allow_html=True)
 
-with st.form(key='my_form'):
-	file = st.text_area('Enter Paragraph :      (Tip : Scroll down after pressing submit 😉) ', height = 350, key="278")
-	submit_button = st.form_submit_button(label='Submit')
 
+choice = st.radio('', ['Enter Text', 'Get from URL'], key = "31234")
+st.markdown('<br>', unsafe_allow_html=True)
+is_url = False
+
+if choice == 'Enter Text' :
+    with st.form(key='my_form'):
+        file = st.text_area('Enter Paragraph :      (Tip : Scroll down after pressing submit 😉) ', height = 350, key="278")
+        submit_button = st.form_submit_button(label='Submit')
+
+else:
+    with st.form(key='url_form'):
+        st.text('Enter a URL or submit Blank for a demo url !')
+        myurl = st.text_input('Enter URL', key="278")
+        submit_button = st.form_submit_button(label='Submit Form')
+        if myurl != "":
+            file = text_scrape.get_scraped_text(myurl)
+            is_url = True
+        else:
+            st.text('Using Demo URL as you entered Nothing')
+            file = text_scrape.get_scraped_text('https://stribny.name/blog/2020/10/how-to-extract-plain-text-from-an-html-page-in-python/')
+
+if is_url == True :
+    st.markdown('<br>', unsafe_allow_html=True)
+    st.markdown('<hr>', unsafe_allow_html=True)
+    st.header("Full Text (Extracted from webpage)")
+    st.markdown('<br>', unsafe_allow_html=True)
+    st.markdown('<br>', unsafe_allow_html=True)
+    st.markdown(file)
 
 if file != "":
 
     st.markdown('<br>', unsafe_allow_html=True)
-    st.markdown('<br>', unsafe_allow_html=True)
-    st.header("Tools")
     st.markdown('<hr>', unsafe_allow_html=True)
+    st.header("Tools")
+    st.markdown('<br>', unsafe_allow_html=True)
 
     st.subheader("Choose the tool you want to use : ")
     st.markdown('<br>', unsafe_allow_html=True)
@@ -137,7 +164,7 @@ if file != "":
     elif choice == "Text to Speech" :
         st.markdown('<br>', unsafe_allow_html=True)
         st.markdown('<hr>', unsafe_allow_html=True)
-        st.header("Summary Audio")
+        st.header("Paragraph Audio")
         st.markdown('<br>', unsafe_allow_html=True)
         tts.tts(file)
 
