@@ -15,7 +15,7 @@ from bokeh.models.widgets import Div
 import graph
 import tts
 
-url = ('https://github.com/AlphaLaser/para-tools')
+url = ('https://github.com/AlphaLaser/ParaTools')
 
 
 
