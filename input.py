@@ -82,7 +82,7 @@ if st.sidebar.button('Whatsapp'):
     html = '<img src onerror="{}">'.format(js)
     div = Div(text=html)
     st.bokeh_chart(div)
-logo = Image.open(r'images\logo.png')
+logo = Image.open(r'images/logo.png')
 st.image(logo)
 st.markdown('<hr>', unsafe_allow_html=True)
 st.markdown('<br>', unsafe_allow_html=True)
