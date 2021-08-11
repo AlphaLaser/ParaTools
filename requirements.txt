@@ -10,3 +10,5 @@ spacy==3.0.7
 spacy-legacy==3.0.8
 streamlit==0.86.0
 bokeh==2.3.3
+matplotlib==3.4.2
+gTTS==2.2.3
