@@ -22,6 +22,8 @@
 
 ParaTools is an app that takes a paragraph as an input and gives you the choice to perform the following functions :
 
+(You can also enter a URL and it will extract the main text from the website) 
+
 - Convert the **text to audio** so that you can hear how it sounds
 
 - Return a User friendly **summary** of the whole paragraph
