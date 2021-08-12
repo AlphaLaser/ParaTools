@@ -58,7 +58,17 @@ ParaTools is an app that takes a paragraph as an input and gives you the choice 
 
 <hr/>
 
-### 3. Install the required libraries 
+### 3. Navigate to the directory in your terminal 
+
+```bash
+C:\Users\Your_Account\Directory_where_files_are_installed >
+```
+
+
+
+<hr/>
+
+### 4. Install the required libraries 
 
 Run this command in your console 
 
@@ -66,13 +76,6 @@ Run this command in your console
 python -m pip install requirements.txt
 ```
 
-<hr/>
-
-### 4. Navigate to the directory in your terminal 
-
-```bash
-C:\Users\Your_Account\Directory_where_files_are_installed >
-```
 <hr/>
 
 ### 5. Run the command
